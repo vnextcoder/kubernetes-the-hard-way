@@ -24,9 +24,11 @@ Delete the external load balancer network resources:
 
   gcloud -q compute target-pools delete kubernetes-target-pool
 
-  gcloud -q compute http-health-checks delete kubernetes
+  gcloud -q compute http-health-checks delete kubernetes \
+   --region $(gcloud config get-value compute/region)
 
-  gcloud -q compute addresses delete kubernetes-the-hard-way
+  gcloud -q compute addresses delete kubernetes-the-hard-way \
+    --region $(gcloud config get-value compute/region)
 }
 ```
 
